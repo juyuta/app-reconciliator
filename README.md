@@ -1,9 +1,17 @@
-﻿Hi everyone,
+Reconciliator
+Reconciliator is a data reconciliation tool I developed as part of an internship project, aimed at addressing inefficiencies in manual reconciliation during a system replacement project. The projects my team is a part of involved multiple iterations of data migration, and part of the quality assurance process required reconciliation of financial data. Initially, this was done manually using VLOOKUP, but the process was slow and inefficient, often taking several days. Reconciliator automates this comparison, drastically reducing the time required for reconciliation.
 
-Thanks for visitng my site. This is my first ever project done during an internship. Feel free to use as fit.
+The tool allows users to upload two Excel files and define custom rules for comparison. It generates an output file that indicates whether the data matches. This solution has reduced reconciliation time from days to hours, making the process much more efficient.
 
-This was created to facilitate reconciling of 2 data set. You can upload 2 excel files and create your own rules as to how you'd want to compare the data. After which you will receive the output either 'Y' or 'N'.
+Installation
+To use the tool, simply download the project folder and run the .exe file.
 
-I would also appreciate if you could provide feedback on how to improve my code or new features as well.
+Usage
+The app features a straightforward interface where users can upload their files, set custom rules, and generate an output report.
 
--JY
+Configuration
+No additional configuration is necessary.
+
+Contributing
+Contributions are welcome! You can fork the repository, submit pull requests, or open issues for improvements, bug fixes, or new features. Please ensure any code follows established standards and is accompanied by relevant tests.
+

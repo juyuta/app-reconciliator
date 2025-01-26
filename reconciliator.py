@@ -18,6 +18,9 @@ from PyQt5.QtGui import QBrush, QColor, QCursor, QFont, QIcon, QPalette, QPixmap
 from PyQt5.QtCore import QCoreApplication, QMetaObject, QRect, QThread, QSize, QUrl, Qt, QDir, pyqtSlot, pyqtSignal
 from PyQt5.QtWidgets import QApplication, QFileDialog, QGraphicsDropShadowEffect, QScrollArea, QComboBox, QToolButton, QWidget, QMessageBox, QPushButton, QScrollBar, QSizePolicy, QListWidget, QFrame, QSpacerItem, QStackedWidget, QTextBrowser, QSizeGrip, QLabel, QMainWindow, QGridLayout
 
+### CREATE ALL THE NECESSARY FOLDERS
+for dir1 in ['/Database', '/icons', '/SQL', '/Log', '/Warning Message']:
+    os.makedirs(str(QDir.currentPath()) + dir1,exist_ok=True)
 warnings.filterwarnings("ignore")
 logging.basicConfig(filename='Log\debug.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
 
@@ -1114,10 +1117,10 @@ class Ui_MainWindow(object):
     def loadingSpinner(self, int):
         ### START LOADING SPINNER WHEN QTHREAD IS WORKING & END WHEN QTHREAD IS DONE WORKING ###
         if int == 1:
-            self.loader = LoadingScreen(self)
+            self.header = LoadingScreen(self)
         if int == 2:
-            self.loader.movie.stop()
-            self.loader.close()
+            self.header.movie.stop()
+            self.header.close()
 
     def uploadSource(self):
         ### UPLOADING SOURCE FILE ###

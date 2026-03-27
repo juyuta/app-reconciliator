@@ -1,0 +1,29 @@
+[project]
+name = "app-reconciliator"
+version = "1.0.0"
+description = "A PyQt5-based desktop application for reconciling data between Excel source and target files."
+requires-python = ">=3.12, <3.13"
+dependencies = [
+    "pandas>=2.2,<3",
+    "numpy>=1.26,<2",
+    "openpyxl>=3.1,<4",
+    "XlsxWriter>=3.2,<4",
+    "PyQt5>=5.15,<6",
+    "PyQt5-Qt5==5.15.2",
+    "pywin32>=306",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.10,<7",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+reconciliator = "core.main:main"

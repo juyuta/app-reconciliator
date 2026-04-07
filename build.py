@@ -87,7 +87,7 @@ def git_release(version: str) -> None:
     run_git("add", str(VERSION_FILE.relative_to(ROOT)))
     run_git("commit", "-m", f"release: {tag}")
     run_git("tag", "-a", tag, "-m", f"Release {tag}")
-    run_git("push", "--follow-tags")
+    run_git("push", "--follow-tags", "--force")
     print(f"\n  Pushed tag {tag} — GitHub Actions will build & publish the release.")
 
 

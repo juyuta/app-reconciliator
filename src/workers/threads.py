@@ -276,7 +276,7 @@ class PrevalidationWorker(QThread):
             c.execute("SELECT DESC, VAL FROM R_PREVALIDATION_OUTPUT_TBL")
             rows = c.fetchall()
 
-            warning_dir = REQUIRED_DIRS.get("warnings", "Warning Message")
+            warning_dir = REQUIRED_DIRS.get("warnings", "output/warnings")
             os.makedirs(warning_dir, exist_ok=True)
             warning_path = os.path.join(warning_dir, "warningMessage.xlsx")
 

@@ -9,16 +9,18 @@ APP_VERSION = "1.0.0"
 # Paths
 # __file__ is src/config/constants.py → .parent.parent = src/ → .parent = repo root
 BASE_DIR = Path(__file__).parent.parent          # src/
-PROJECT_ROOT = Path(__file__).parent.parent.parent  # repo root (contains icons/, SQL/, etc.)
+PROJECT_ROOT = Path(__file__).parent.parent.parent  # repo root
 
 # Directory structure — all relative to the repo root
+# resources/ = static assets shipped with the app
+# output/    = runtime-generated files (gitignored)
 REQUIRED_DIRS = {
-    "database": os.path.join(PROJECT_ROOT, "Database"),
-    "icons": os.path.join(PROJECT_ROOT, "icons"),
-    "sql": os.path.join(PROJECT_ROOT, "SQL"),
-    "logs": os.path.join(PROJECT_ROOT, "Log"),
-    "warnings": os.path.join(PROJECT_ROOT, "Warning Message"),
-    "demo": os.path.join(PROJECT_ROOT, "Demo Files"),
+    "database": os.path.join(PROJECT_ROOT, "output", "database"),
+    "icons": os.path.join(PROJECT_ROOT, "resources", "icons"),
+    "sql": os.path.join(PROJECT_ROOT, "resources", "sql"),
+    "logs": os.path.join(PROJECT_ROOT, "output", "logs"),
+    "warnings": os.path.join(PROJECT_ROOT, "output", "warnings"),
+    "demo": os.path.join(PROJECT_ROOT, "resources", "demo"),
 }
 
 # Database settings
@@ -38,19 +40,19 @@ WINDOW_WIDTH = 1200
 WINDOW_HEIGHT = 900
 ICON_SIZE = (20, 20)
 
-# Icon paths — absolute, based on PROJECT_ROOT
+# Icon paths — absolute, based on REQUIRED_DIRS["icons"]
 ICON_PATHS = {
-    "minus": os.path.join(PROJECT_ROOT, "icons", "minus-sign.png"),
-    "resize": os.path.join(PROJECT_ROOT, "icons", "resize.png"),
-    "cancel": os.path.join(PROJECT_ROOT, "icons", "cancel.png"),
-    "next": os.path.join(PROJECT_ROOT, "icons", "next.png"),
-    "upload": os.path.join(PROJECT_ROOT, "icons", "upload.png"),
-    "checklist": os.path.join(PROJECT_ROOT, "icons", "checklist.png"),
-    "delete": os.path.join(PROJECT_ROOT, "icons", "delete.png"),
-    "reload": os.path.join(PROJECT_ROOT, "icons", "reload.png"),
-    "restore": os.path.join(PROJECT_ROOT, "icons", "restore.png"),
-    "back": os.path.join(PROJECT_ROOT, "icons", "back.png"),
-    "loading": os.path.join(PROJECT_ROOT, "icons", "loading.gif"),
+    "minus": os.path.join(REQUIRED_DIRS["icons"], "minus-sign.png"),
+    "resize": os.path.join(REQUIRED_DIRS["icons"], "resize.png"),
+    "cancel": os.path.join(REQUIRED_DIRS["icons"], "cancel.png"),
+    "next": os.path.join(REQUIRED_DIRS["icons"], "next.png"),
+    "upload": os.path.join(REQUIRED_DIRS["icons"], "upload.png"),
+    "checklist": os.path.join(REQUIRED_DIRS["icons"], "checklist.png"),
+    "delete": os.path.join(REQUIRED_DIRS["icons"], "delete.png"),
+    "reload": os.path.join(REQUIRED_DIRS["icons"], "reload.png"),
+    "restore": os.path.join(REQUIRED_DIRS["icons"], "restore.png"),
+    "back": os.path.join(REQUIRED_DIRS["icons"], "back.png"),
+    "loading": os.path.join(REQUIRED_DIRS["icons"], "loading.gif"),
 }
 
 # Style settings

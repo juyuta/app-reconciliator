@@ -15,7 +15,7 @@ def setup_file_logging(log_name: str = None) -> str:
     Returns:
         str: Path to log file
     """
-    log_dir = REQUIRED_DIRS.get("logs", "Log")
+    log_dir = REQUIRED_DIRS.get("logs", "output/logs")
     os.makedirs(log_dir, exist_ok=True)
     
     if log_name is None:

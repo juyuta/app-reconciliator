@@ -137,28 +137,31 @@ class Ui_MainWindow(object):
         self.central_widget = QtWidgets.QWidget(MainWindow)
         self.central_widget.setMinimumSize(QtCore.QSize(1200, 900))
         self.central_widget.setStyleSheet('''
-                                        QScrollbar:vertical {
+                                        QScrollBar:vertical {
                                             border: none;
-                                            width: 14px;
-                                            margin: 15px 0 15px 0;
-                                            border-radius: 7px;
+                                            background: transparent;
+                                            width: 10px;
+                                            margin: 4px 2px 4px 2px;
+                                            border-radius: 5px;
                                         }    
                                         QScrollBar::handle:vertical {
-                                            background-color: rgb(80, 80, 122);
+                                            background-color: rgba(0, 120, 212, 0.45);
                                             min-height: 30px;
-                                            border-radius: 7px;
+                                            border-radius: 5px;
                                         }
                                         QScrollBar::handle:vertical:hover {
-                                            background-color: rgb(200, 200, 200);
+                                            background-color: rgba(0, 120, 212, 0.7);
                                         }
                                         QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                                             background: none;
                                         }
                                         QScrollBar::sub-line:vertical {
-                                            border:none;
+                                            border: none;
+                                            height: 0px;
                                         }
                                         QScrollBar::add-line:vertical {
                                             border: none;
+                                            height: 0px;
                                         }
                                         ''')
         self.central_widget.setObjectName("central_widget")
@@ -169,12 +172,12 @@ class Ui_MainWindow(object):
 
         # DECLARE ALL FONTS
         font = QtGui.QFont()
-        font.setFamily("Leelawadee")
-        font1 = QtGui.QFont("Leelawadee", 15, 75) # Font type, font size, weight sizes
-        font2 = QtGui.QFont("Leelawadee", 14, 75)
-        font3 = QtGui.QFont("Leelawadee", 10, 75)
-        font4 = QtGui.QFont("Leelawadee", 10)
-        font5 = QtGui.QFont("Leelawadee", 9, 75)
+        font.setFamily("Segoe UI")
+        font1 = QtGui.QFont("Segoe UI", 14, 63) # Font type, font size, weight sizes
+        font2 = QtGui.QFont("Segoe UI", 13, 63)
+        font3 = QtGui.QFont("Segoe UI", 10, 63)
+        font4 = QtGui.QFont("Segoe UI", 10)
+        font5 = QtGui.QFont("Segoe UI", 9, 63)
 
         # DECLARE ICONS
         self.icon1 = QtGui.QIcon()
@@ -204,9 +207,9 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.header.sizePolicy().hasHeightForWidth())
         self.header.setSizePolicy(sizePolicy)
-        self.header.setMinimumSize(QtCore.QSize(0, 75))
-        self.header.setStyleSheet("background-color: rgb(49, 54, 59)")
-        self.header.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.header.setMinimumSize(QtCore.QSize(0, 60))
+        self.header.setStyleSheet("background-color: rgb(32, 36, 40)")
+        self.header.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.header.setFrameShadow(QtWidgets.QFrame.Plain)
         self.header.setObjectName("header")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.header)
@@ -218,47 +221,49 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         self.name = QtWidgets.QLabel(self.header)
         self.name.setFont(font1)
-        self.name.setStyleSheet("color: rgb(222, 222, 222)")
+        self.name.setStyleSheet("color: rgba(255, 255, 255, 0.9)")
         self.name.setTextFormat(QtCore.Qt.MarkdownText)
         self.name.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.name.setIndent(-1)
         self.name.setObjectName("name")
         self.horizontalLayout.addWidget(self.name)
         self.minimize_button = QtWidgets.QPushButton(self.header)
-        self.minimize_button.setFixedSize(QtCore.QSize(50, 50))
-        self.minimize_button.setStyleSheet("border: none")
+        self.minimize_button.setFixedSize(QtCore.QSize(46, 46))
         self.minimize_button.setIcon(self.icon1)
-        self.minimize_button.setIconSize(QtCore.QSize(20, 20))
+        self.minimize_button.setIconSize(QtCore.QSize(18, 18))
         self.minimize_button.setObjectName("minimize_button")
         self.minimize_button.setStyleSheet("QPushButton {\n"
                                           "    border: none;\n"
+                                          "    border-radius: 6px;\n"
                                           "}\n"
                                           "QPushButton::hover {\n"
-                                          "    background-color: rgb(79, 84, 89)\n"
+                                          "    background-color: rgba(255, 255, 255, 0.1);\n"
                                           "}")
         self.horizontalLayout.addWidget(self.minimize_button)
         self.maximize_button = QtWidgets.QPushButton(self.header)
-        self.maximize_button.setFixedSize(QtCore.QSize(50, 50))
+        self.maximize_button.setFixedSize(QtCore.QSize(46, 46))
         self.maximize_button.setStyleSheet("QPushButton {\n"
                                           "    border: none;\n"
+                                          "    border-radius: 6px;\n"
                                           "}\n"
                                           "QPushButton::hover {\n"
-                                          "    background-color: rgb(79, 84, 89)\n"
+                                          "    background-color: rgba(255, 255, 255, 0.1);\n"
                                           "}")        
         self.maximize_button.setIcon(self.icon2)
-        self.maximize_button.setIconSize(QtCore.QSize(20, 20))
+        self.maximize_button.setIconSize(QtCore.QSize(18, 18))
         self.maximize_button.setObjectName("maximize_button")
         self.horizontalLayout.addWidget(self.maximize_button)
         self.close_button = QtWidgets.QPushButton(self.header)
-        self.close_button.setFixedSize(QtCore.QSize(50, 50))
+        self.close_button.setFixedSize(QtCore.QSize(46, 46))
         self.close_button.setStyleSheet("QPushButton {\n"
                                           "    border: none;\n"
+                                          "    border-radius: 6px;\n"
                                           "}\n"
                                           "QPushButton::hover {\n"
-                                          "    background-color: rgb(79, 84, 89)\n"
+                                          "    background-color: rgba(232, 17, 35, 0.9);\n"
                                           "}")
         self.close_button.setIcon(self.icon3)
-        self.close_button.setIconSize(QtCore.QSize(20, 20))
+        self.close_button.setIconSize(QtCore.QSize(18, 18))
         self.close_button.setObjectName("close_button")
         self.horizontalLayout.addWidget(self.close_button)
         self.centralwidget_layout.addWidget(self.header)
@@ -269,7 +274,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.body.sizePolicy().hasHeightForWidth())
         self.body.setSizePolicy(sizePolicy)
         self.body.setMinimumSize(QtCore.QSize(0, 0))
-        self.body.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.body.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.body.setFrameShadow(QtWidgets.QFrame.Plain)
         self.body.setLineWidth(1)
         self.body.setObjectName("body")
@@ -283,9 +288,9 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.left_bar.sizePolicy().hasHeightForWidth())
         self.left_bar.setSizePolicy(sizePolicy)
-        self.left_bar.setMinimumSize(QtCore.QSize(250, 0))
-        self.left_bar.setMaximumSize(QtCore.QSize(400, 16777215))
-        self.left_bar.setStyleSheet("background-color: rgb(255, 255, 255)")
+        self.left_bar.setMinimumSize(QtCore.QSize(220, 0))
+        self.left_bar.setMaximumSize(QtCore.QSize(260, 16777215))
+        self.left_bar.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.left_bar.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.left_bar.setFrameShadow(QtWidgets.QFrame.Plain)
         self.left_bar.setObjectName("left_bar")
@@ -299,10 +304,10 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tutorial_tab.sizePolicy().hasHeightForWidth())
         self.tutorial_tab.setSizePolicy(sizePolicy)
-        self.tutorial_tab.setMinimumSize(QtCore.QSize(0, 75))
+        self.tutorial_tab.setMinimumSize(QtCore.QSize(0, 56))
         self.tutorial_tab.setMaximumSize(QtCore.QSize(16777215, 200))
         self.tutorial_tab.setFont(font3)
-        self.tutorial_tab.setStyleSheet("border: none; background-color: rgb(246, 246, 246)")
+        self.tutorial_tab.setStyleSheet("border: none; border-left: 3px solid #0078D4; background-color: rgb(245, 249, 255); color: #0078D4; text-align: left; padding-left: 20px;")
         self.tutorial_tab.setObjectName("tutorial_tab")
         self.left_bar_layout.addWidget(self.tutorial_tab, 0, QtCore.Qt.AlignTop)
         self.upload_tab = QtWidgets.QPushButton(self.left_bar)
@@ -311,11 +316,10 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.upload_tab.sizePolicy().hasHeightForWidth())
         self.upload_tab.setSizePolicy(sizePolicy)
-        self.upload_tab.setMinimumSize(QtCore.QSize(0, 75))
+        self.upload_tab.setMinimumSize(QtCore.QSize(0, 56))
         self.upload_tab.setMaximumSize(QtCore.QSize(16777215, 200))
         self.upload_tab.setFont(font3)
-        self.upload_tab.setStyleSheet("border: none")
-        self.upload_tab.setObjectName("upload_tab")
+        self.upload_tab.setStyleSheet("border: none; border-left: 3px solid transparent; padding-left: 20px;")
         self.left_bar_layout.addWidget(self.upload_tab, 0, QtCore.Qt.AlignTop)
         self.rule_tab = QtWidgets.QPushButton(self.left_bar)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -323,11 +327,10 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.rule_tab.sizePolicy().hasHeightForWidth())
         self.rule_tab.setSizePolicy(sizePolicy)
-        self.rule_tab.setMinimumSize(QtCore.QSize(0, 75))
+        self.rule_tab.setMinimumSize(QtCore.QSize(0, 56))
         self.rule_tab.setMaximumSize(QtCore.QSize(16777215, 200))
         self.rule_tab.setFont(font3)
-        self.rule_tab.setStyleSheet("border: none")
-        self.rule_tab.setObjectName("rule_tab")
+        self.rule_tab.setStyleSheet("border: none; border-left: 3px solid transparent; padding-left: 20px;")
         self.left_bar_layout.addWidget(self.rule_tab, 0, QtCore.Qt.AlignTop)
         self.recon_tab = QtWidgets.QPushButton(self.left_bar)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -335,16 +338,16 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.recon_tab.sizePolicy().hasHeightForWidth())
         self.recon_tab.setSizePolicy(sizePolicy)
-        self.recon_tab.setMinimumSize(QtCore.QSize(0, 75))
+        self.recon_tab.setMinimumSize(QtCore.QSize(0, 56))
         self.recon_tab.setMaximumSize(QtCore.QSize(16777215, 200))
         self.recon_tab.setFont(font3)
-        self.recon_tab.setStyleSheet("border: none")
-        self.recon_tab.setObjectName("recon_tab")
+        self.recon_tab.setStyleSheet("border: none; border-left: 3px solid transparent; padding-left: 20px;")
         self.left_bar_layout.addWidget(self.recon_tab, 0, QtCore.Qt.AlignTop)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.left_bar_layout.addItem(spacerItem)
         self.version_label = QtWidgets.QLabel(self.left_bar)
         self.version_label.setFont(font)
+        self.version_label.setStyleSheet("color: #aaa; padding: 12px 0;")
         self.version_label.setAlignment(QtCore.Qt.AlignCenter)
         self.version_label.setObjectName("version_label")
         self.left_bar_layout.addWidget(self.version_label)
@@ -355,7 +358,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.screen.sizePolicy().hasHeightForWidth())
         self.screen.setSizePolicy(sizePolicy)
-        self.screen.setStyleSheet("background-color: rgb(246, 246, 246)")
+        self.screen.setStyleSheet("background-color: rgb(250, 250, 252)")
         self.screen.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.screen.setFrameShadow(QtWidgets.QFrame.Plain)
         self.screen.setObjectName("screen")
@@ -372,7 +375,7 @@ class Ui_MainWindow(object):
         self.page_1_layout.setObjectName("page_1_layout")
         self.page_1_header = QtWidgets.QFrame(self.page_1)
         self.page_1_header.setMinimumSize(QtCore.QSize(0, 50))
-        self.page_1_header.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_1_header.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_1_header.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_1_header.setObjectName("page_1_header")        
         self.page_1_header_layout = QtWidgets.QVBoxLayout(self.page_1_header)
@@ -395,7 +398,7 @@ class Ui_MainWindow(object):
         self.page_1_layout.addWidget(self.page_1_header)
         self.page_1_body = QtWidgets.QFrame(self.page_1)       
         self.page_1_body.setMinimumSize(QtCore.QSize(0, 300))
-        self.page_1_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_1_body.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_1_body.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_1_body.setLineWidth(0)
         self.page_1_body.setObjectName("page_1_body")
@@ -408,11 +411,11 @@ class Ui_MainWindow(object):
         self.page_1_scrollArea.setAcceptDrops(False)
         self.page_1_scrollArea.setStyleSheet("QScrollBar:vertical {\n"
                                             "border:none;\n"
-                                            "background: rgb(49, 54, 59)"
+                                            "background: transparent;\n"
                                             "}")
         self.page_1_scrollArea.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_1_scrollArea.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.page_1_scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.page_1_scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.page_1_scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.page_1_scrollArea.setWidgetResizable(True)
         self.page_1_scrollArea.setObjectName("page_1_scrollArea")
@@ -430,9 +433,10 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.page_1_body_text.sizePolicy().hasHeightForWidth())
         self.page_1_body_text.setSizePolicy(sizePolicy)
         self.page_1_body_text.setFont(font4)
-        self.page_1_body_text.setContentsMargins(5,5,5,5)
+        self.page_1_body_text.setContentsMargins(20,15,20,15)
         self.page_1_body_text.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_1_body_text.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.page_1_body_text.setTextFormat(QtCore.Qt.RichText)
         self.page_1_body_text.setText("")
         self.page_1_body_text.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.page_1_body_text.setWordWrap(True)
@@ -443,7 +447,7 @@ class Ui_MainWindow(object):
         self.page_1_body_layout.addWidget(self.page_1_scrollArea)
         self.page_1_layout.addWidget(self.page_1_body)
         self.page_1_next = QtWidgets.QFrame(self.page_1)
-        self.page_1_next.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_1_next.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_1_next.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_1_next.setObjectName("page_1_next")
         self.page_1_next_layout = QtWidgets.QVBoxLayout(self.page_1_next)
@@ -454,10 +458,10 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.page_1_next_button.sizePolicy().hasHeightForWidth())
         self.page_1_next_button.setSizePolicy(sizePolicy)
-        self.page_1_next_button.setMinimumSize(QtCore.QSize(90, 35))
+        self.page_1_next_button.setMinimumSize(QtCore.QSize(100, 38))
         self.page_1_next_button.setFont(font3)
-        self.page_1_next_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.page_1_next_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: #0078D4; color: white; padding: 6px 20px; }\n"
+                                                "QPushButton:hover { background-color: #106EBE; }")
         self.page_1_next_button.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.page_1_next_button.setIcon(self.icon4)
         self.page_1_next_button.setIconSize(QtCore.QSize(15, 15))
@@ -473,7 +477,7 @@ class Ui_MainWindow(object):
         self.page_2_layout.setObjectName("page_2_layout")
         self.page_2_header = QtWidgets.QFrame(self.page_2)
         self.page_2_header.setMinimumSize(QtCore.QSize(0, 50))
-        self.page_2_header.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_2_header.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_2_header.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_2_header.setObjectName("page_2_header")
         self.page_2_header_layout = QtWidgets.QVBoxLayout(self.page_2_header)
@@ -490,9 +494,7 @@ class Ui_MainWindow(object):
         self.page_2_header_layout.addWidget(self.page_2_header_text, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.page_2_layout.addWidget(self.page_2_header, 0, QtCore.Qt.AlignTop)
         self.page_2_upload_files = QtWidgets.QFrame(self.page_2)
-        self.page_2_upload_files.setStyleSheet("background-color: rgb(237, 237, 237); border-radius: 7px;")
-        self.page_2_upload_files.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.page_2_upload_files.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.page_2_upload_files.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
         self.page_2_upload_files.setObjectName("page_2_upload_files")
         self.page_2_upload_files_2 = QtWidgets.QVBoxLayout(self.page_2_upload_files)
         self.page_2_upload_files_2.setObjectName("page_2_upload_files_2")
@@ -501,7 +503,7 @@ class Ui_MainWindow(object):
         self.page_2_body.setObjectName("page_2_body")
         self.page_2_upload_files_2.addWidget(self.page_2_body, 0, QtCore.Qt.AlignHCenter)
         self.upload = QtWidgets.QFrame(self.page_2_upload_files)
-        self.upload.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.upload.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.upload.setFrameShadow(QtWidgets.QFrame.Raised)
         self.upload.setObjectName("upload")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.upload)
@@ -509,7 +511,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.source = QtWidgets.QFrame(self.upload)
-        self.source.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.source.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.source.setFrameShadow(QtWidgets.QFrame.Raised)
         self.source.setObjectName("source")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.source)
@@ -523,8 +525,8 @@ class Ui_MainWindow(object):
         self.upload_source_button.setSizePolicy(sizePolicy)
         self.upload_source_button.setMinimumSize(QtCore.QSize(300, 35))
         self.upload_source_button.setFont(font3)
-        self.upload_source_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.upload_source_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")
         self.upload_source_button.setIcon(self.icon5)
         self.upload_source_button.setObjectName("upload_source_button")
         self.verticalLayout_4.addWidget(self.upload_source_button, 0, QtCore.Qt.AlignHCenter)
@@ -537,7 +539,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.source_file_name, 0, QtCore.Qt.AlignHCenter)
         self.horizontalLayout_2.addWidget(self.source)
         self.target = QtWidgets.QFrame(self.upload)
-        self.target.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.target.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.target.setFrameShadow(QtWidgets.QFrame.Raised)
         self.target.setObjectName("target")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.target)
@@ -551,8 +553,8 @@ class Ui_MainWindow(object):
         self.upload_target_button.setSizePolicy(sizePolicy)        
         self.upload_target_button.setMinimumSize(QtCore.QSize(300, 35))
         self.upload_target_button.setFont(font3)
-        self.upload_target_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.upload_target_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")
         self.upload_target_button.setIcon(self.icon5)
         self.upload_target_button.setObjectName("upload_target_button")
         self.verticalLayout_5.addWidget(self.upload_target_button, 0, QtCore.Qt.AlignHCenter)
@@ -567,9 +569,7 @@ class Ui_MainWindow(object):
         self.page_2_upload_files_2.addWidget(self.upload)
         self.page_2_layout.addWidget(self.page_2_upload_files)
         self.page_2_prevalidation = QtWidgets.QFrame(self.page_2)
-        self.page_2_prevalidation.setStyleSheet("background-color: rgb(237, 237, 237); border-radius: 7px;")
-        self.page_2_prevalidation.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.page_2_prevalidation.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.page_2_prevalidation.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
         self.page_2_prevalidation.setObjectName("page_2_prevalidation")
         self.page_2_prevalidation_layout = QtWidgets.QVBoxLayout(self.page_2_prevalidation)
         self.page_2_prevalidation_layout.setContentsMargins(100, 11, 100, -1)
@@ -585,18 +585,19 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.prevalidate_button.sizePolicy().hasHeightForWidth())
         self.prevalidate_button.setSizePolicy(sizePolicy)
-        self.prevalidate_button.setMinimumSize(QtCore.QSize(300, 35))
+        self.prevalidate_button.setMinimumSize(QtCore.QSize(300, 38))
         self.prevalidate_button.setFont(font3)
-        self.prevalidate_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.prevalidate_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: #0078D4; color: white; padding: 6px 20px; }\n"
+                                                "QPushButton:hover { background-color: #106EBE; }\n"
+                                                "QPushButton:disabled { background-color: #ccc; color: #888; }")
         self.prevalidate_button.setIcon(self.icon6)
         self.prevalidate_button.setObjectName("prevalidate_button")
         self.page_2_prevalidation_layout.addWidget(self.prevalidate_button, 0, QtCore.Qt.AlignHCenter)
         self.page_2_layout.addWidget(self.page_2_prevalidation)
         self.page_2_output = QtWidgets.QFrame(self.page_2)
         self.page_2_output.setMinimumSize(QtCore.QSize(0, 200))
-        self.page_2_output.setStyleSheet("background-color: rgb(237, 237, 237); border-radius: 7px;")
-        self.page_2_output.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_2_output.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
+        self.page_2_output.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_2_output.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_2_output.setObjectName("page_2_output")
         self.page_2_output_layout = QtWidgets.QVBoxLayout(self.page_2_output)
@@ -637,7 +638,7 @@ class Ui_MainWindow(object):
         self.page_2_scrollArea.setWidget(self.page_2_output_list)
         self.page_2_layout.addWidget(self.page_2_output)
         self.page_2_next = QtWidgets.QFrame(self.page_2)
-        self.page_2_next.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_2_next.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_2_next.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_2_next.setObjectName("page_2_next")
         self.page_2_next_layout = QtWidgets.QHBoxLayout(self.page_2_next)
@@ -645,17 +646,17 @@ class Ui_MainWindow(object):
         self.page_2_back_button = QtWidgets.QPushButton(self.page_2_next)
         self.page_2_back_button.setMinimumSize(QtCore.QSize(90, 35))
         self.page_2_back_button.setFont(font3)
-        self.page_2_back_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")        
+        self.page_2_back_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")        
         self.page_2_back_button.setIcon(self.icon10)
         self.page_2_back_button.setIconSize(QtCore.QSize(15, 15))
         self.page_2_back_button.setObjectName("page_2_back_button")
         self.page_2_next_layout.addWidget(self.page_2_back_button, 0, QtCore.Qt.AlignLeft)
         self.page_2_next_button = QtWidgets.QPushButton(self.page_2_next)
-        self.page_2_next_button.setMinimumSize(QtCore.QSize(90, 35))
+        self.page_2_next_button.setMinimumSize(QtCore.QSize(100, 38))
         self.page_2_next_button.setFont(font3)
-        self.page_2_next_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")        
+        self.page_2_next_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: #0078D4; color: white; padding: 6px 20px; }\n"
+                                                "QPushButton:hover { background-color: #106EBE; }")        
         self.page_2_next_button.setIcon(self.icon4)
         self.page_2_next_button.setIconSize(QtCore.QSize(15, 15))
         self.page_2_next_button.setObjectName("page_2_next_button")
@@ -670,7 +671,7 @@ class Ui_MainWindow(object):
         self.page_3_layout.setObjectName("page_3_layout")
         self.page_3_header = QtWidgets.QFrame(self.page_3)
         self.page_3_header.setMinimumSize(QtCore.QSize(0, 50))
-        self.page_3_header.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_3_header.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_3_header.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_3_header.setObjectName("page_3_header")
         self.page_3_header_layout = QtWidgets.QVBoxLayout(self.page_3_header)
@@ -685,8 +686,8 @@ class Ui_MainWindow(object):
         self.page_3_header_layout.addWidget(self.page_3_header_text)
         self.page_3_layout.addWidget(self.page_3_header)
         self.page_3_intro = QtWidgets.QFrame(self.page_3)
-        self.page_3_intro.setStyleSheet("background-color: rgb(237, 237, 237); border-radius: 7px;")
-        self.page_3_intro.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_3_intro.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
+        self.page_3_intro.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_3_intro.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_3_intro.setObjectName("page_3_intro")
         self.page_3_intro_layout = QtWidgets.QVBoxLayout(self.page_3_intro)
@@ -697,14 +698,14 @@ class Ui_MainWindow(object):
         self.page_3_intro_layout.addWidget(self.page_3_intro_text)
         self.page_3_layout.addWidget(self.page_3_intro)
         self.page_3_dropdown = QtWidgets.QFrame(self.page_3)
-        self.page_3_dropdown.setStyleSheet("background-color: rgb(237, 237, 237); border-radius: 7px;")
-        self.page_3_dropdown.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_3_dropdown.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
+        self.page_3_dropdown.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_3_dropdown.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_3_dropdown.setObjectName("page_3_dropdown")
         self.page_3_dropdown_layout = QtWidgets.QHBoxLayout(self.page_3_dropdown)
         self.page_3_dropdown_layout.setObjectName("page_3_dropdown_layout")
         self.source_column = QtWidgets.QFrame(self.page_3_dropdown)
-        self.source_column.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.source_column.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.source_column.setFrameShadow(QtWidgets.QFrame.Raised)
         self.source_column.setObjectName("source_column")
         self.source_column_layout = QtWidgets.QVBoxLayout(self.source_column)
@@ -721,7 +722,7 @@ class Ui_MainWindow(object):
         self.source_column_layout.addWidget(self.source_column_dropdown)
         self.page_3_dropdown_layout.addWidget(self.source_column)
         self.operator_column = QtWidgets.QFrame(self.page_3_dropdown)
-        self.operator_column.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.operator_column.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.operator_column.setFrameShadow(QtWidgets.QFrame.Raised)
         self.operator_column.setObjectName("operator_column")
         self.operator_column_layout = QtWidgets.QVBoxLayout(self.operator_column)
@@ -738,7 +739,7 @@ class Ui_MainWindow(object):
         self.operator_column_layout.addWidget(self.operator_dropdown)
         self.page_3_dropdown_layout.addWidget(self.operator_column)
         self.target_column = QtWidgets.QFrame(self.page_3_dropdown)
-        self.target_column.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.target_column.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.target_column.setFrameShadow(QtWidgets.QFrame.Raised)
         self.target_column.setObjectName("target_column")
         self.target_column_layout = QtWidgets.QVBoxLayout(self.target_column)
@@ -762,8 +763,8 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.page_3_rule_output_viewer.sizePolicy().hasHeightForWidth())
         self.page_3_rule_output_viewer.setSizePolicy(sizePolicy)
         self.page_3_rule_output_viewer.setMinimumSize(QtCore.QSize(0, 50))
-        self.page_3_rule_output_viewer.setStyleSheet("background-color: rgb(237, 237, 237); border-radius: 7px;")
-        self.page_3_rule_output_viewer.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_3_rule_output_viewer.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
+        self.page_3_rule_output_viewer.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_3_rule_output_viewer.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_3_rule_output_viewer.setFont(font4)
         self.page_3_rule_output_viewer.setObjectName("page_3_rule_output_viewer")
@@ -778,7 +779,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.rule_viewer.sizePolicy().hasHeightForWidth())
         self.rule_viewer.setSizePolicy(sizePolicy)
         self.rule_viewer.setMinimumSize(QtCore.QSize(0, 100))
-        self.rule_viewer.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.rule_viewer.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.rule_viewer.setFrameShadow(QtWidgets.QFrame.Raised)
         self.rule_viewer.setObjectName("rule_viewer")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.rule_viewer)
@@ -800,24 +801,24 @@ class Ui_MainWindow(object):
         self.clear_rule_construct_button.setMinimumSize(QtCore.QSize(90, 35))
         self.clear_rule_construct_button.setBaseSize(QtCore.QSize(0, 0))
         self.clear_rule_construct_button.setFont(font3)
-        self.clear_rule_construct_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.clear_rule_construct_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")
         self.clear_rule_construct_button.setIcon(self.icon7)
         self.clear_rule_construct_button.setObjectName("clear_rule_construct_button")
         self.horizontalLayout_3.addWidget(self.clear_rule_construct_button)
         self.validate_button = QtWidgets.QPushButton(self.rule_viewer)
         self.validate_button.setMinimumSize(QtCore.QSize(90, 35))
         self.validate_button.setFont(font3)
-        self.validate_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.validate_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")
         self.validate_button.setIcon(self.icon6)
         self.validate_button.setObjectName("validate_button")
         self.horizontalLayout_3.addWidget(self.validate_button)
         self.page_3_rule_output_viewer_layout.addWidget(self.rule_viewer)
         self.page_3_layout.addWidget(self.page_3_rule_output_viewer)
         self.page_3_validated_rule_list = QtWidgets.QFrame(self.page_3)
-        self.page_3_validated_rule_list.setStyleSheet("background-color: rgb(237, 237, 237); border-radius: 7px;")
-        self.page_3_validated_rule_list.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_3_validated_rule_list.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
+        self.page_3_validated_rule_list.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_3_validated_rule_list.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_3_validated_rule_list.setObjectName("page_3_validated_rule_list")
         self.page_3_validated_rule_list_layout = QtWidgets.QHBoxLayout(self.page_3_validated_rule_list)
@@ -845,7 +846,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.delete_upload_rule.sizePolicy().hasHeightForWidth())
         self.delete_upload_rule.setSizePolicy(sizePolicy)
         self.delete_upload_rule.setMinimumSize(QtCore.QSize(50, 0))
-        self.delete_upload_rule.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.delete_upload_rule.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.delete_upload_rule.setFrameShadow(QtWidgets.QFrame.Raised)
         self.delete_upload_rule.setObjectName("delete_upload_rule")
         self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.delete_upload_rule)
@@ -853,23 +854,23 @@ class Ui_MainWindow(object):
         self.upload_rules_button = QtWidgets.QPushButton(self.delete_upload_rule)
         self.upload_rules_button.setMinimumSize(QtCore.QSize(90, 35))
         self.upload_rules_button.setFont(font3)
-        self.upload_rules_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.upload_rules_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")
         self.upload_rules_button.setIcon(self.icon5)
         self.upload_rules_button.setObjectName("upload_rules_button")
         self.verticalLayout_10.addWidget(self.upload_rules_button)
         self.delete_rule_button = QtWidgets.QPushButton(self.delete_upload_rule)
         self.delete_rule_button.setMinimumSize(QtCore.QSize(90, 35))
         self.delete_rule_button.setFont(font3)
-        self.delete_rule_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.delete_rule_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")
         self.delete_rule_button.setIcon(self.icon7)
         self.delete_rule_button.setObjectName("delete_rule_button")
         self.verticalLayout_10.addWidget(self.delete_rule_button)
         self.page_3_validated_rule_list_layout.addWidget(self.delete_upload_rule)
         self.page_3_layout.addWidget(self.page_3_validated_rule_list)
         self.page_3_next = QtWidgets.QFrame(self.page_3)
-        self.page_3_next.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_3_next.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_3_next.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_3_next.setObjectName("page_3_next")
         self.page_3_next_layout = QtWidgets.QHBoxLayout(self.page_3_next)
@@ -877,17 +878,17 @@ class Ui_MainWindow(object):
         self.page_3_back_button = QtWidgets.QPushButton(self.page_3_next)
         self.page_3_back_button.setMinimumSize(QtCore.QSize(90, 35))
         self.page_3_back_button.setFont(font3)
-        self.page_3_back_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.page_3_back_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: rgb(45, 49, 54); color: white; padding: 6px 16px; }\n"
+                                                "QPushButton:hover { background-color: rgb(65, 70, 76); }")
         self.page_3_back_button.setIcon(self.icon10)
         self.page_3_back_button.setIconSize(QtCore.QSize(15, 15))
         self.page_3_back_button.setObjectName("page_3_next_button")
         self.page_3_next_layout.addWidget(self.page_3_back_button, 0, QtCore.Qt.AlignLeft)
         self.reconcile_button = QtWidgets.QPushButton(self.page_3_next)
-        self.reconcile_button.setMinimumSize(QtCore.QSize(90, 35))
+        self.reconcile_button.setMinimumSize(QtCore.QSize(100, 38))
         self.reconcile_button.setFont(font3)
-        self.reconcile_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.reconcile_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: #0078D4; color: white; padding: 6px 20px; }\n"
+                                                "QPushButton:hover { background-color: #106EBE; }")
         self.reconcile_button.setIcon(self.icon4)
         self.reconcile_button.setIconSize(QtCore.QSize(15, 15))
         self.reconcile_button.setObjectName("page_3_next_button")
@@ -902,7 +903,7 @@ class Ui_MainWindow(object):
         self.page_4_layout.setObjectName("page_4_layout")
         self.page_4_header = QtWidgets.QFrame(self.page_4)
         self.page_4_header.setMinimumSize(QtCore.QSize(0, 50))
-        self.page_4_header.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_4_header.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_4_header.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_4_header.setObjectName("page_4_header")
         self.page_4_header_layout = QtWidgets.QVBoxLayout(self.page_4_header)
@@ -918,8 +919,8 @@ class Ui_MainWindow(object):
         self.page_4_layout.addWidget(self.page_4_header)
         self.page_4_loading = QtWidgets.QFrame(self.page_4)
         self.page_4_loading.setMinimumSize(QtCore.QSize(0, 0))
-        self.page_4_loading.setStyleSheet("background-color: rgb(237, 237, 237);border-radius: 7px;")
-        self.page_4_loading.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_4_loading.setStyleSheet("background-color: rgb(255, 255, 255); border-radius: 10px;")
+        self.page_4_loading.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_4_loading.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_4_loading.setObjectName("page_4_loading")
         self.page_4_loading_layout = QtWidgets.QVBoxLayout(self.page_4_loading)
@@ -932,12 +933,15 @@ class Ui_MainWindow(object):
         self.progressBar = QtWidgets.QProgressBar(self.page_4_loading)
         self.progressBar.setProperty("value", 24)
         self.progressBar.setTextVisible(False)
+        self.progressBar.setStyleSheet(
+            "QProgressBar { border: none; border-radius: 6px; background-color: #e8e8e8; height: 12px; }\n"
+            "QProgressBar::chunk { border-radius: 6px; background-color: #0078D4; }")
         self.progressBar.setOrientation(QtCore.Qt.Horizontal)
         self.progressBar.setObjectName("progressBar")
         self.page_4_loading_layout.addWidget(self.progressBar)
         self.page_4_layout.addWidget(self.page_4_loading)
         self.page_4_list = QtWidgets.QFrame(self.page_4)
-        self.page_4_list.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_4_list.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_4_list.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_4_list.setObjectName("page_4_list")
         self.page_4_list_layout = QtWidgets.QVBoxLayout(self.page_4_list)
@@ -951,7 +955,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.left_bar.sizePolicy().hasHeightForWidth())
         self.listView.setSizePolicy(sizePolicy)
         self.listView.setFont(font3)
-        self.listView.setStyleSheet("background-color: white;border-radius: 7px")
+        self.listView.setStyleSheet("background-color: white; border-radius: 10px; padding: 12px;")
         self.listView.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop)
         self.listView.setWordWrap(True)
         self.listView.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -961,7 +965,7 @@ class Ui_MainWindow(object):
         self.page_4_layout.addWidget(self.page_4_list)
         self.page_4_restart = QtWidgets.QFrame(self.page_4)
         self.page_4_restart.setMinimumSize(QtCore.QSize(0, 0))
-        self.page_4_restart.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.page_4_restart.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.page_4_restart.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_4_restart.setObjectName("page_4_restart")
         self.page_4_restart_layout = QtWidgets.QHBoxLayout(self.page_4_restart)
@@ -979,10 +983,10 @@ class Ui_MainWindow(object):
         self.checkBox_2.setObjectName("checkBox_2")
         self.page_4_restart_layout.addWidget(self.checkBox_2)
         self.restart_button = QtWidgets.QPushButton(self.page_4_restart)
-        self.restart_button.setMinimumSize(QtCore.QSize(90, 35))
+        self.restart_button.setMinimumSize(QtCore.QSize(100, 38))
         self.restart_button.setFont(font3)
-        self.restart_button.setStyleSheet("QPushButton {border-radius: 5px; background-color: rgb(49, 54, 59); color: white}\n"
-                                                "QPushButton::Hover {background-color: rgb(79, 84, 89)}")
+        self.restart_button.setStyleSheet("QPushButton { border-radius: 8px; background-color: #0078D4; color: white; padding: 6px 20px; }\n"
+                                                "QPushButton:hover { background-color: #106EBE; }")
         self.restart_button.setIcon(self.icon8)
         self.restart_button.setObjectName("restart_button")
         self.page_4_restart_layout.addWidget(self.restart_button, 0, QtCore.Qt.AlignRight)
@@ -1002,30 +1006,73 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", APP_NAME))
         self.name.setText(_translate("MainWindow", APP_NAME.lower()))
-        self.tutorial_tab.setText(_translate("MainWindow", "Read Me"))
+        self.tutorial_tab.setText(_translate("MainWindow", "  Getting Started"))
         self.upload_tab.setText(_translate("MainWindow", "Upload Files"))
         self.rule_tab.setText(_translate("MainWindow", "Construct Rules"))
         self.recon_tab.setText(_translate("MainWindow", "Reconciliation"))
         self.version_label.setText(_translate("MainWindow", f"v{APP_VERSION}"))
-        self.page_1_header_text.setText(_translate("MainWindow", "Read Me"))
-        self.page_1_body_text.setText(_translate("MainWindow", "Take note of the pointers below before proceeding: \n\n"
-                                                "1. Ensure your column names are only in alphanumeric and underscore, while date-related columns are read as 'Date' in excel. However, the output for date columns will be in 'YYYY-MM-DD' format for now.\n\n" 
-                                                "2. Upload Source and Target excel files by clicking the respective buttons. Ensure that there are no duplicate column names present in each file and that both files should not be empty.\n\n"
-                                                "3. Do note that column names may be amended to a more appropriate format (such as removing leading spaces and replacing '.' with '_'). Leading & Trailing spaces in each cell will be removed as well.\n\n"
-                                                "4. You may encounter a scenario / error where the tool says similar terms such as 'Unnamed:_16', this means that the 17th column (in this case) is included even though it is blank. Please delete the column for fix.\n\n"
-                                                "5. Once both files are uploaded, click on the 'Pre-Validation' button to validate the datasets for errors and warnings. Errors will be shown in console & you cannot proceed to the next step. Warnings will be stored into an excel file & you can be proceed upon acknowledging the message.\n\n"
-                                                "6. Configuring pre-validation warning is flexible and users can add new SQL statement(s) into file 'prevalidation.sql' found in 'resources/sql' folder for program to execute.\n\n"
-                                                "7. To construct the reconciliation rules, please select the columns & operators found in the dropdowns.\n\n"
-                                                "8. After setting a desired rule, click on the 'Validate Rule' button to ensure that selected rule is error-free, which will be reflected below. In case of error, a popup will list down the reason(s).\n\n"
-                                                "9. You can remove unwanted validated rule in the list by selecting the rule & clicking on the 'Delete' button.\n\n"
-                                                "10. Click 'Reconcile' button to generate a reconciled excel file with the output, source, target and rules data.\n\n"
-                                                "11. Click 'Restart' button after reconciliation output file has been generated to start the process all over again.\n\n"
-                                                "12. In order to re-use the rules applied in the previous reconciled output file, keep the 'Rules' tab located in output file (and delete the remaining worksheets) as a single sheet. Then, in the next iteration, click on 'Rules' button to upload it.\n\n"
-                                                "13. For better experience, please ensure that your Window Display Scaling is 125%.\n\n"
-                                                "14. Since the first column for both excel files are the data drivers / primary keys, there is a possibility of cross join in the event these fields are not unique.\n\n"
-                                                "15. Remove any blank column(s) or column(s) without any data."))
+        self.page_1_header_text.setText(_translate("MainWindow", "Getting Started"))
+        self.page_1_body_text.setText(_translate("MainWindow",
+            '<div style="font-family: Segoe UI; color: #333;">'
+
+            '<p style="font-size: 13px; color: #555; margin-bottom: 18px;">'
+            'Reconciliator compares two Excel files column-by-column using rules you define. '
+            'Follow the four steps below to get started.</p>'
+
+            '<table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 14px;">'
+            '<tr>'
+
+            '<td width="25%" style="padding: 8px;">'
+            '<div style="background-color: #f0f7ff; border-radius: 8px; padding: 18px 14px; text-align: center; border: 1px solid #d6e8fa;">'
+            '<div style="font-size: 22px; color: #0078D4; font-weight: 600;">1</div>'
+            '<div style="font-size: 12px; font-weight: 600; color: #0078D4; margin-top: 4px;">Upload</div>'
+            '<div style="font-size: 11px; color: #666; margin-top: 6px;">Source &amp; Target<br/>Excel files</div>'
+            '</div></td>'
+
+            '<td width="25%" style="padding: 8px;">'
+            '<div style="background-color: #f0f7ff; border-radius: 8px; padding: 18px 14px; text-align: center; border: 1px solid #d6e8fa;">'
+            '<div style="font-size: 22px; color: #0078D4; font-weight: 600;">2</div>'
+            '<div style="font-size: 12px; font-weight: 600; color: #0078D4; margin-top: 4px;">Pre-Validate</div>'
+            '<div style="font-size: 11px; color: #666; margin-top: 6px;">Check for errors<br/>&amp; warnings</div>'
+            '</div></td>'
+
+            '<td width="25%" style="padding: 8px;">'
+            '<div style="background-color: #f0f7ff; border-radius: 8px; padding: 18px 14px; text-align: center; border: 1px solid #d6e8fa;">'
+            '<div style="font-size: 22px; color: #0078D4; font-weight: 600;">3</div>'
+            '<div style="font-size: 12px; font-weight: 600; color: #0078D4; margin-top: 4px;">Set Rules</div>'
+            '<div style="font-size: 11px; color: #666; margin-top: 6px;">Define column<br/>comparisons</div>'
+            '</div></td>'
+
+            '<td width="25%" style="padding: 8px;">'
+            '<div style="background-color: #f0f7ff; border-radius: 8px; padding: 18px 14px; text-align: center; border: 1px solid #d6e8fa;">'
+            '<div style="font-size: 22px; color: #0078D4; font-weight: 600;">4</div>'
+            '<div style="font-size: 12px; font-weight: 600; color: #0078D4; margin-top: 4px;">Reconcile</div>'
+            '<div style="font-size: 11px; color: #666; margin-top: 6px;">Generate output<br/>Excel report</div>'
+            '</div></td>'
+
+            '</tr></table>'
+
+            '<div style="background-color: #fff8e1; border-radius: 8px; padding: 14px 18px; border: 1px solid #ffe082; margin-bottom: 14px;">'
+            '<div style="font-size: 12px; font-weight: 600; color: #f57c00; margin-bottom: 8px;">\u26a0\ufe0f  Before you begin</div>'
+            '<ul style="margin: 0; padding-left: 18px; font-size: 11px; color: #555; line-height: 1.7;">'
+            '<li>Column names must be <b>alphanumeric or underscores</b> only. Date columns should be typed as Date in Excel.</li>'
+            '<li>Remove any <b>blank or duplicate columns</b> and ensure neither file is empty.</li>'
+            '<li>The <b>first column</b> in each file is treated as the primary key (data driver).</li>'
+            '<li>Leading/trailing spaces in cells and special characters in column names are cleaned automatically.</li>'
+            '</ul></div>'
+
+            '<div style="background-color: #f5f5f5; border-radius: 8px; padding: 14px 18px; border: 1px solid #e0e0e0;">'
+            '<div style="font-size: 12px; font-weight: 600; color: #555; margin-bottom: 8px;">\U0001f4a1  Tips</div>'
+            '<ul style="margin: 0; padding-left: 18px; font-size: 11px; color: #555; line-height: 1.7;">'
+            '<li>Add custom pre-validation SQL to <code style="background:#e8e8e8; padding:1px 4px; border-radius:3px;">resources/sql/prevalidation.sql</code>.</li>'
+            '<li>Re-use previous rules by uploading the <b>RULES</b> sheet from a past output file.</li>'
+            '<li>For best display, set Windows Display Scaling to <b>125%</b>.</li>'
+            '</ul></div>'
+
+            '</div>'
+        ))
         self.page_1_next_button.setText(_translate("MainWindow", "Next"))
-        self.page_2_header_text.setText(_translate("MainWindow", "UPLOAD FILES"))
+        self.page_2_header_text.setText(_translate("MainWindow", "Upload Files"))
         self.page_2_body.setText(_translate("MainWindow", "<html><head/><body><p>Click on the respective buttons to select &amp; upload the files</p></body></html>"))
         self.upload_source_button.setText(_translate("MainWindow", "Source"))
         self.upload_target_button.setText(_translate("MainWindow", "Target"))
@@ -1035,7 +1082,7 @@ class Ui_MainWindow(object):
         self.page_2_output_label.setText(_translate("MainWindow", "Output Viewer"))
         self.page_2_back_button.setText(_translate("MainWindow", "Back"))
         self.page_2_next_button.setText(_translate("MainWindow", "Next"))
-        self.page_3_header_text.setText(_translate("MainWindow", "SELECT OR UPLOAD RULES"))
+        self.page_3_header_text.setText(_translate("MainWindow", "Select or Upload Rules"))
         self.page_3_intro_text.setText(_translate("MainWindow", "Click on the dropdowns below to set your rules.\n"
                                                 "You can upload it as your pre-set rules"))
         self.source_column_label.setText(_translate("MainWindow", "Source Column"))
@@ -1049,7 +1096,7 @@ class Ui_MainWindow(object):
         self.delete_rule_button.setText(_translate("MainWindow", "Delete"))
         self.page_3_back_button.setText(_translate("MainWindow", "Back"))
         self.reconcile_button.setText(_translate("MainWindow", "Reconcile"))
-        self.page_4_header_text.setText(_translate("MainWindow", "SUMMARY"))
+        self.page_4_header_text.setText(_translate("MainWindow", "Summary"))
         self.progress_bar_text.setText(_translate("MainWindow", "Loading... Please wait..."))
         self.checkBox.setText(_translate("MainWindow", "Remove Source File"))
         self.checkBox_2.setText(_translate("MainWindow", "Remove Target File"))
@@ -1079,44 +1126,44 @@ class Ui_MainWindow(object):
 
     def prevCurrentIndex(self):
         ### FUNCTION FOR 'BACK' BUTTONS ###
-        rgb246 = "border: none; background-color: rgb(246, 246, 246)"
-        rgb250 = "border: none; background-color: rgb(255, 255, 255)"
+        active = "border: none; border-left: 3px solid #0078D4; background-color: rgb(245, 249, 255); color: #0078D4; padding-left: 20px;"
+        inactive = "border: none; border-left: 3px solid transparent; padding-left: 20px;"
 
         if self.stacked_Widget.currentIndex() == 1:
             self.stacked_Widget.setCurrentIndex(0)
-            self.tutorial_tab.setStyleSheet(rgb246)
-            self.upload_tab.setStyleSheet(rgb250)
+            self.tutorial_tab.setStyleSheet(active)
+            self.upload_tab.setStyleSheet(inactive)
 
         elif self.stacked_Widget.currentIndex() == 2:
             self.stacked_Widget.setCurrentIndex(1)
-            self.upload_tab.setStyleSheet(rgb246)
-            self.rule_tab.setStyleSheet(rgb250)
+            self.upload_tab.setStyleSheet(active)
+            self.rule_tab.setStyleSheet(inactive)
 
     def nextCurrentIndex(self):
         ### FUNCTION FOR 'NEXT' & 'RECONCILE' BUTTONS ###
-        rgb246 = "border: none; background-color: rgb(246, 246, 246)"
-        rgb250 = "border: none; background-color: rgb(255, 255, 255)"
+        active = "border: none; border-left: 3px solid #0078D4; background-color: rgb(245, 249, 255); color: #0078D4; padding-left: 20px;"
+        inactive = "border: none; border-left: 3px solid transparent; padding-left: 20px;"
 
         if self.stacked_Widget.currentIndex() == 0:
             self.stacked_Widget.setCurrentIndex(1)
-            self.upload_tab.setStyleSheet(rgb246)
-            self.tutorial_tab.setStyleSheet(rgb250)
+            self.upload_tab.setStyleSheet(active)
+            self.tutorial_tab.setStyleSheet(inactive)
 
         elif self.stacked_Widget.currentIndex() == 1:
             self.stacked_Widget.setCurrentIndex(2)
-            self.rule_tab.setStyleSheet(rgb246)
-            self.upload_tab.setStyleSheet(rgb250)
+            self.rule_tab.setStyleSheet(active)
+            self.upload_tab.setStyleSheet(inactive)
 
         elif self.stacked_Widget.currentIndex() == 2:
             self.stacked_Widget.setCurrentIndex(3)
-            self.recon_tab.setStyleSheet(rgb246)
-            self.rule_tab.setStyleSheet(rgb250)
+            self.recon_tab.setStyleSheet(active)
+            self.rule_tab.setStyleSheet(inactive)
             self.reconcile()
 
         elif self.stacked_Widget.currentIndex() == 3:
             self.stacked_Widget.setCurrentIndex(1)
-            self.upload_tab.setStyleSheet(rgb246)
-            self.recon_tab.setStyleSheet(rgb250)
+            self.upload_tab.setStyleSheet(active)
+            self.recon_tab.setStyleSheet(inactive)
             self.restart()
 
     def loadingSpinner(self, state):

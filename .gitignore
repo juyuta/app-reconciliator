@@ -1,2 +1,10 @@
-# Runtime output (created by app at startup)
 output/
+build/
+dist/
+__pycache__/
+
+*.spec
+*.log
+*.egg-info/
+*.egg
+*.pyc

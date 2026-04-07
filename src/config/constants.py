@@ -2,9 +2,11 @@
 import os
 from pathlib import Path
 
+from config._version import __version__
+
 # Application Info
 APP_NAME = "Reconciliator"
-APP_VERSION = "1.0.0"
+APP_VERSION = __version__
 
 # Paths
 # __file__ is src/config/constants.py → .parent.parent = src/ → .parent = repo root

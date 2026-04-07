@@ -1,6 +1,6 @@
 [project]
 name = "app-reconciliator"
-version = "1.0.0"
+dynamic = ["version"]
 description = "A PyQt5-based desktop application for reconciling data between Excel source and target files."
 requires-python = ">=3.12, <3.13"
 dependencies = [
@@ -21,8 +21,11 @@ dev = [
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.dynamic]
+version = {attr = "config._version.__version__"}
+
 [build-system]
-requires = ["setuptools>=64", "setuptools-scm>=8"]
+requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
